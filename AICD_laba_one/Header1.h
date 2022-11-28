@@ -26,7 +26,7 @@ public:
 	}	
 	
 	Vector(int size, double eps){ // конструктор с параметром
-		if (size < 1) throw "Недопустимое значение";
+		if (size < 1) throw invalid_argument("Недопустимое значение");
 		_size = size;
 		epsilon = abs(eps);
 		data = new double [size];
@@ -70,12 +70,12 @@ public:
 	}
 	*/
 	double operator[](int i) const { //ЧТение и запись
-		if (i<0 or i>_size) throw "Invalid index";
+		if (i<0 or i>_size) throw out_of_range("Недопустимое значение");
 		return data[i];
 	}
 
 	double& operator[](int i) {
-		if (i<0 or i>_size)  throw "Invalid index";
+		if (i<0 or i>_size) throw out_of_range("Недопустимое значение");
 		return data[i];	
 	}
 	friend ostream& operator<<(ostream& os, const Vector& a) //вывод
@@ -114,7 +114,7 @@ public:
 	}
 	
 	Vector& operator+=(const Vector& a) {		//Сложение векторов
-		if (_size != a._size) throw "Невозможжно сложить векторы";
+		if (_size != a._size) throw logic_error("Невозможжно сложить векторы разной длины");
 		for (size_t i = 0; i < _size; i++)	
 		{
 			data[i] += a.data[i];
@@ -129,7 +129,7 @@ public:
 		return tmp;
 	}
 	Vector& operator-=(const Vector& a) {
-		if (_size != a._size) throw "Невозможжно вычесть векторы";
+		if (_size != a._size) throw logic_error("Невозможжно вычесть векторы разной длины");
 		for (size_t i = 0; i < _size; i++)
 		{
 			data[i] -= a.data[i];
@@ -143,7 +143,7 @@ public:
 		return temp;
 	}
 	Vector& operator*=(const Vector& a) { //*this это наш переданный темп, а а соотвтвествеенно как аргумент а
-		if (_size != a._size) throw "Невозможжно умножить векторы";
+		if (_size != a._size) throw logic_error("Невозможжно умножить векторы разной длины");
 		for (size_t i = 0; i < _size; i++)
 		{
 			data[i] *=a.data[i];
@@ -181,7 +181,7 @@ public:
 		return temp;
 	 }
 	Vector& operator/=(const double a) { //*this это наш переданный темп, а а соотвтвествеенно как аргумент а
-		if (a==0) throw "Невозможжно разделить векторы";
+		if (a==0) throw logic_error("Невозможжно делить на 0");
 		for (size_t i = 0; i < _size; i++)
 		{
 			data[i] /= a;
@@ -200,7 +200,7 @@ public:
 	}
 	static double sin(Vector a,Vector b) //вычесление синуса для площади
 	{
-		if (a._size != b._size) throw "Векторы не равны";
+		if (a._size != b._size) throw logic_error("Невозможжно вычислить синус между векторами разной размерности");
 		double chislitel = 0; 
 		double temp=0,tmp = 0;
 		double znamenatel = 1;
