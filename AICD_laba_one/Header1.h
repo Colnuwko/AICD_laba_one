@@ -21,7 +21,7 @@ public:
 
 		for (size_t i = 0; i < _size; i++)
 		{
-			data[i] = rand()%300-100;
+			data[i] = ((rand()%300-100)*0.67)/0.42;
 		}
 	}	
 	
@@ -201,12 +201,12 @@ public:
 	static double sin(Vector a,Vector b) //вычесление синуса для площади
 	{
 		if (a._size != b._size) throw logic_error("Невозможжно вычислить синус между векторами разной размерности");
-		double chislitel = 0; 
+		double numerator = 0; 
 		double temp=0,tmp = 0;
-		double znamenatel = 1;
+		double denominator = 1;
 		for (size_t i = 0; i < a._size; i++)
 		{
-			chislitel += (a.data[i] * b.data[i]);
+			numerator += (a.data[i] * b.data[i]);
 			
 		}
 		for (size_t i = 0; i < a._size; i++)
@@ -217,8 +217,8 @@ public:
 		temp = sqrt(temp);
 		tmp = sqrt(tmp);
 		temp = temp * tmp;
-		znamenatel = temp;
-		return sqrt(1 - pow((chislitel/znamenatel), 2));
+		denominator = temp;
+		return sqrt(1 - pow((numerator / denominator), 2));
 	}
 	static double length(Vector a,Vector b) //вычесление произведения длин векторов
 	{ 
