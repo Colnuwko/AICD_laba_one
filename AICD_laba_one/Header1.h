@@ -70,12 +70,12 @@ public:
 	}
 	*/
 	double operator[](int i) const { //ЧТение и запись
-		if (i<0 or i>_size) throw out_of_range("Недопустимое значение");
+		if (i<0 or i>_size-1) throw out_of_range("Недопустимое значение");
 		return data[i];
 	}
 
 	double& operator[](int i) {
-		if (i<0 or i>_size) throw out_of_range("Недопустимое значение");
+		if (i<0 or i>_size-1) throw out_of_range("Недопустимое значение");
 		return data[i];	
 	}
 	friend ostream& operator<<(ostream& os, const Vector& a) //вывод

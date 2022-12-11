@@ -82,7 +82,7 @@ int main()
 					cout << "Давайте заполгним наши векторы" << endl << "Введите размерность первого вектора" << endl;
 					int size_one;
 					int size_two;
-					int epsilon;
+					double epsilon;
 					cin >> size_one;
 					cout << "А теперь введем размерность 2 вектора" << endl;
 					cin >> size_two;
@@ -146,6 +146,7 @@ int main()
 					{
 					case 49:
 					{
+						system("cls");
 						res = A + B;
 						cout << "A + B = " << res << endl;
 						_getch();
@@ -153,6 +154,7 @@ int main()
 					}
 					case 50:
 					{
+						system("cls");
 						while (key != 0) {
 							cout << "Шо вычитаем?" << endl << "1. A - B" << endl << "2. B - A" << endl;
 
@@ -170,6 +172,7 @@ int main()
 					}
 					case 51:
 					{
+						system("cls");
 						double x = A * B;
 						cout << "A * B = " << x << endl;
 						_getch();
@@ -177,6 +180,7 @@ int main()
 					}
 					case 52:
 					{
+						system("cls");
 						double x;
 						cout << "Введите делитель" << endl;
 						cin >> x;
@@ -201,6 +205,7 @@ int main()
 					}
 					case 53:
 					{
+						system("cls");
 						double x;
 						cout << "Введите множитель" << endl;
 						cin >> x;
@@ -225,6 +230,7 @@ int main()
 					}
 					case 54:
 					{
+						system("cls");
 						double x;
 						x = Vector::square(A, B);
 						cout << "Площадь = " << x << endl;
@@ -233,6 +239,7 @@ int main()
 					}
 					case 55:
 					{
+						system("cls");
 						if (A == B) cout << A << "==" << B << endl;
 						else cout << A << "!=" << B << endl;
 						_getch();
@@ -240,7 +247,7 @@ int main()
 					}
 					case 56:
 					{
-					repeat:
+						system("cls");
 						cout << "1. Изменить значения вектора 1" << endl << "2. Изменить значения вектора 2" << endl;
 						int x;
 						cin >> x;
@@ -261,7 +268,7 @@ int main()
 							{
 								cout << "Введеный индекс выходит за рамки вектора" << endl;
 								_getch();
-								goto repeat;
+								
 							}
 						}
 						else
@@ -283,7 +290,7 @@ int main()
 							{
 								cout << "У вас только два выбора! Красная или синия таблетка?" << endl;
 								_getch();
-								goto repeat;
+								
 							}
 						}
 
@@ -292,7 +299,7 @@ int main()
 					}
 					case 57:
 					{
-						repeat_two:
+						system("cls");
 						cout << "1. Просмотреть значения вектора 1" << endl << "2. Просмотреть значения вектора 2" << endl;
 						int x;
 						cin >> x;
@@ -317,7 +324,7 @@ int main()
 							else {
 								cout << "У вас только два выбора! Красная или синия таблетка?" << endl;
 								_getch();
-								goto repeat_two;
+								
 							}
 						}
 					}
